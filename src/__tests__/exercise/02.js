@@ -5,6 +5,9 @@ import * as React from 'react'
 // import ReactDOM from 'react-dom'
 // 🐨 import the `render` and `fireEvent` utilities from '@testing-library/react'
 import {render, fireEvent} from '@testing-library/react'
+// the line below gives us stuff like toHaveTextContent,
+// but it's already imported at the project level.
+// import '@testing-library/jest-dom/extend-expect'
 import Counter from '../../components/counter'
 
 // 💣 remove this. React Testing Library does this automatically!
