@@ -33,13 +33,21 @@ test('counter increments and decrements when the buttons are clicked', () => {
   // 🐨 expect the message.textContent toBe 'Current count: 0'
   expect(messageDiv.textContent).toBe('Current count: 0')
 
+  // Question for the group: KCD made separate incrementClickEvent and decrementClickEvent events. Is it OK to reuse like this?
+  const clickEvent = new MouseEvent('click', {
+    bubbles: true,
+    cancelable: true,
+    button: 0, // left click
+  })
   // 🐨 click the increment button (💰 increment.click())
-  incrementButton.click()
+  // incrementButton.click()
+  incrementButton.dispatchEvent(clickEvent)
   // 🐨 assert the message.textContent
   expect(messageDiv.textContent).toBe('Current count: 1')
 
   // 🐨 click the decrement button (💰 decrement.click())
-  decrementButton.click()
+  // decrementButton.click()
+  decrementButton.dispatchEvent(clickEvent)
   // 🐨 assert the message.textContent
   expect(messageDiv.textContent).toBe('Current count: 0')
 })
