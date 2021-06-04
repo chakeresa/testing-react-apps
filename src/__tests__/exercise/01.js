@@ -5,6 +5,11 @@ import * as React from 'react'
 import ReactDOM from 'react-dom'
 import Counter from '../../components/counter'
 
+beforeEach(() => {
+  // 🦉 If you don't cleanup, then it could impact other tests and/or cause a memory leak
+  document.body.innerHTML = ''
+})
+
 test('counter increments and decrements when the buttons are clicked', () => {
   // 🐨 create a div to render your component to (💰 document.createElement)
   let container = document.createElement('div')
@@ -37,10 +42,6 @@ test('counter increments and decrements when the buttons are clicked', () => {
   decrementButton.click()
   // 🐨 assert the message.textContent
   expect(messageDiv.textContent).toBe('Current count: 0')
-
-  // 🐨 cleanup by removing the div from the page (💰 div.remove())
-  // 🦉 If you don't cleanup, then it could impact other tests and/or cause a memory leak
-  container.remove()
 })
 
 /* eslint no-unused-vars:0 */
